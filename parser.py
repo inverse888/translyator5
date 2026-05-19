@@ -32,7 +32,9 @@ class Parser:
             self.pos += 1
         else:
             raise ParserError(f"Ожидался {token_type.name}, получен {self.current_token().type.name}")
-
+    def parse(self):
+        self.parse_program()
+        
     def parse_program(self):
         # <Program> ::= <StatementList>
         while self.current_token().type != TokenType.EOF:
